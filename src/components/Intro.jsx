@@ -1,0 +1,146 @@
+import React, { useEffect, useState } from 'react'
+import { Github, Linkedin, Facebook, Download } from 'lucide-react'
+import { motion, useInView  } from 'framer-motion'
+import { useRef } from "react";
+import cv from "../assets/Imamul_Islam_Ifti_CV.pdf"
+
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  }),
+}
+
+const Intro = () => {
+  const ref = useRef();
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Check if the page is scrolled
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  // Listen to scroll events
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <section
+      id="intro"
+      className="min-h-screen flex flex-col items-center justify-center px-4"
+    >
+      {/* <img
+        src={profileImg}
+        alt="Profile"
+        className="w-40 h-40 md:w-52 md:h-52 rounded-full shadow-lg mx-auto transition duration-300"
+      /> */}
+
+
+      <motion.h1
+        className="text-4xl md:text-5xl font-extrabold mb-6 text-center"
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={0}
+        transition={{ duration: 0.6 }}
+      >
+        Hi, I’m Ifti
+      </motion.h1>
+
+      <motion.h2
+        className="text-2xl md:text-3xl font-semibold mb-4 text-center"
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={1}
+        transition={{ duration: 0.6 }}
+      >
+        Full-Stack Developer | Problem Solver | Tech Enthusiast
+      </motion.h2>
+
+      <motion.p
+        className="text-center max-w-xl mb-6"
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={2}
+        transition={{ duration: 0.6 }}
+      >
+        Passionate about building scalable web applications and exploring innovative solutions. Welcome to my digital space — let’s create something meaningful.
+      </motion.p>
+      
+      {/* Buttons */}
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 items-center sm:items-center"
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          variants={fadeUp}
+          custom={3}
+          transition={{ duration: 0.6 }}
+        >
+          <a
+            href={cv}
+            download
+            className="flex items-center gap-2 px-4 py-2 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-md font-semibold hover:bg-opacity-90 transition duration-300"
+          >
+            <Download size={18} />
+            CV
+          </a>
+
+          {/* Social icons */}
+          <div className="flex gap-4">
+            <a
+              href="https://github.com/ImamIfti056"
+              target="_blank"
+              rel="noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--primary-bg)] text-[var(--primary-text)] hover:scale-110 transition-all duration-300 shadow"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href="https://linkedin.com/in/iiifti"
+              target="_blank"
+              rel="noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--primary-bg)] text-[var(--primary-text)] hover:scale-110 transition-all duration-300 shadow"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61553650420449"
+              target="_blank"
+              rel="noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--primary-bg)] text-[var(--primary-text)] hover:scale-110 transition-all duration-300 shadow"
+            >
+              <Facebook size={18} />
+            </a>
+          </div>
+        </motion.div>
+    </section>
+  )
+}
+
+export default Intro

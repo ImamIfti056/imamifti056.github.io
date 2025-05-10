@@ -1,0 +1,55 @@
+import React from "react";
+import Navbar, {MobileNavbar} from "./components/Navbar";
+import { Outlet, useLocation } from "react-router-dom";
+import ColorPicker from "./components/ColorPicker";
+import { AnimatePresence } from "framer-motion";
+import ScrollToNavigate from "./components/ScrollToNavigate";
+import ParticlesBackground from "./components/ParticlesBackground";
+import Intro from "./components/Intro";
+
+
+
+function App() { 
+  const location = useLocation();
+  
+  return (   
+    <div className={`relative w-full h-screen overflow-hidden text-white`}>
+      {/* Background: Dark Base */}
+      <div className="absolute inset-0 bg-black clip-angled z-10" >
+        <ParticlesBackground/>
+      </div>
+
+      {/* Background: Accent Overlay (top right corner) */}
+      <div className={`absolute inset-0 bg-[var(--primary-bg)] clip-accent z-20`} />
+
+      {/* Bottom-left triangle */}
+      <div className={`absolute bottom-0 left-0 w-32 h-32 bg-[var(--primary-bg)] clip-triangle z-30`} />
+
+      {/* Your content goes here */}
+      <div className="relative z-30 p-8">
+        <div className={`min-h-screen flex`}>
+            {/* Sidebar for Desktop */}
+            <Navbar/>
+
+            {/* Bottom Navbar for Mobile */}
+            <MobileNavbar/>
+
+            {/* Color picker */}
+            <ColorPicker/>
+
+            {/* Main Content */}
+            <div className="flex-1">
+              <ScrollToNavigate />
+              <AnimatePresence mode="wait">
+                <Outlet key={location.pathname} />
+              </AnimatePresence>
+            </div>
+
+            
+          </div>
+      </div>
+    </div>
+  )
+}
+
+export default App

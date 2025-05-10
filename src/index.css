@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-bg: #f59e0b;         /* Tailwind yellow-400 */
+  --primary-text: #000;
+}
+
+
+.clip-angled {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.clip-accent {
+  /* clip-path: polygon(50% 0, 100% 0, 100% 100%, 95% 100%); */
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 98% 100%, 98% 4%, 50% 4%);
+
+}
+
+.clip-triangle {
+  clip-path: polygon(0 100%, 100% 100%, 0 0);
+}
+
+
