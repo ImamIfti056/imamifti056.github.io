@@ -15,7 +15,7 @@ import Projects from './components/Projects.jsx';
 import Intro from './components/Intro.jsx';
 import NotFoundPage from './components/NotFoundPage.jsx';
 import Skills from './components/Skills.jsx';
-
+import About from './components/About.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -55,6 +55,10 @@ const router = createBrowserRouter([
         path: '/skills',
         element: <Skills/>
       },
+      {
+        path: '/about',
+        element: <About/>
+      },
     ]
   }
 ])
@@ -62,6 +66,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <RouterProvider router={router}/>
+    <RouterProvider router={router}/>
   </StrictMode>,
 )

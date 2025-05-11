@@ -8,11 +8,13 @@ import {
     Users,
     Mail,
     Wand2,
+    Home,
 } from "lucide-react";
 import { Link, NavLink } from 'react-router-dom';
 
 const sections = [
-    { id: "", label: "Ifti", icon: <User  /> },
+    { id: "", label: "Ifti", icon: <Home  /> },
+    { id: "about", label: "About Me", icon: <User  /> },
     { id: "skills", label: "Skills", icon: <Wand2  /> },
     { id: "education", label: "Education", icon: <BookOpen /> },
     { id: "projects", label: "Projects", icon: <Award /> },
@@ -25,7 +27,7 @@ const sections = [
 const Navbar = () => {
 
   return (
-    <nav className="fixed top-0 left-0 h-full py-6 pl-4 z-50 md:flex hidden flex-col items-center justify-center">
+    <nav className="fixed top-0 left-0 h-full py-6 pl-6 z-50 md:flex hidden flex-col items-center justify-center">
       {/* Nav Items */}
       <div className="flex flex-col gap-4">
       {sections.map(({ id, label, icon }) => (
@@ -33,7 +35,7 @@ const Navbar = () => {
           key={id}
           to={`/${id}`}
           className={({ isActive }) =>
-            `group flex items-center overflow-hidden w-12 hover:w-40 transition-all duration-300 rounded-full px-3 py-2 gap-3 hover:bg-[var(--primary-bg)] text-white
+            `group flex items-center overflow-hidden w-12 hover:w-40 transition-all duration-300 rounded-full p-3 gap-3 hover:bg-[var(--primary-bg)] text-white
              ${isActive ? 'bg-[var(--primary-bg)] text-white' : 'text-[var(--primary-text)]'}`
           }
         >
@@ -58,7 +60,7 @@ export const MobileNavbar = () => {
           <Link
             key={id}
             to={`/${id}`}
-            className="flex items-center justify-center w-full py-2 hover:bg-gray-700 rounded"
+            className="flex items-center justify-center w-full py-2 rounded"
           >
             {icon}
           </Link>

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Github, Linkedin, Facebook, Download } from 'lucide-react'
+import { FaDev } from "react-icons/fa";
 import { motion, useInView  } from 'framer-motion'
 import { useRef } from "react";
 import cv from "../assets/Imamul_Islam_Ifti_CV.pdf"
+import { Helmet } from 'react-helmet';
 
 
 const fadeUp = {
@@ -42,6 +44,7 @@ const Intro = () => {
   }, []);
 
   return (
+    <>
     <section
       id="intro"
       className="min-h-screen flex flex-col items-center justify-center px-4"
@@ -63,7 +66,7 @@ const Intro = () => {
         custom={0}
         transition={{ duration: 0.6 }}
       >
-        Hi, I’m Ifti
+        Hi, I’m <span className='text-[var(--primary-bg)]'>Ifti</span>
       </motion.h1>
 
       <motion.h2
@@ -76,11 +79,23 @@ const Intro = () => {
         custom={1}
         transition={{ duration: 0.6 }}
       >
-        Full-Stack Developer | Problem Solver | Tech Enthusiast
+        Full-Stack Developer | Tech Enthusiast
       </motion.h2>
+      <motion.h3
+        className="text-lg md:text-xl font-medium italic text-center mb-4 text-[var(--primary-bg)]"
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={2.5}
+        transition={{ duration: 0.6 }}
+      >
+        "Crafting Digital. Solving Problems. Delivering Value."
+      </motion.h3>
 
       <motion.p
-        className="text-center max-w-xl mb-6"
+        className="text-center max-w-xl mb-6 2xl:text-xl 2xl:mt-6"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -94,7 +109,7 @@ const Intro = () => {
       
       {/* Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 items-center sm:items-center"
+          className="flex flex-col sm:flex-row gap-4 items-center sm:items-center 2xl:mt-8"
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -137,9 +152,18 @@ const Intro = () => {
             >
               <Facebook size={18} />
             </a>
+            <a
+              href="https://dev.to/ImamIfti056"
+              target="_blank"
+              rel="noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--primary-bg)] text-[var(--primary-text)] hover:scale-110 transition-all duration-300 shadow"
+            >
+              <FaDev size={18}/>
+            </a>
           </div>
         </motion.div>
     </section>
+    </>
   )
 }
 

@@ -2,16 +2,14 @@ import React from "react";
 import Navbar, {MobileNavbar} from "./components/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import ColorPicker from "./components/ColorPicker";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import ScrollToNavigate from "./components/ScrollToNavigate";
 import ParticlesBackground from "./components/ParticlesBackground";
-import Intro from "./components/Intro";
-
 
 
 function App() { 
-  const location = useLocation();
-  
+  const location = useLocation();  
+
   return (   
     <div className={`relative w-full h-screen overflow-hidden text-white`}>
       {/* Background: Dark Base */}
@@ -26,7 +24,7 @@ function App() {
       <div className={`absolute bottom-0 left-0 w-32 h-32 bg-[var(--primary-bg)] clip-triangle z-30`} />
 
       {/* Your content goes here */}
-      <div className="relative z-30 p-8">
+      <div className="relative z-30 md:py-12 md:px-24 px-4">
         <div className={`min-h-screen flex`}>
             {/* Sidebar for Desktop */}
             <Navbar/>

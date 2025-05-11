@@ -45,22 +45,23 @@ export default function Projects() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
-    getRepos("ImamIfti056")
-      .then((data) => {
-        setRepos(data);
-        console.log(data)
-      })
-      .catch(console.error);
-    setLoading(false)
-  }, []);
-
-  if(loading) return <div>Loading...</div>
+  setLoading(true);
+  getRepos("ImamIfti056")
+    .then((data) => {
+      setRepos(data);
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.error(error);
+      setLoading(false);
+    });
+}, []);
 
   return (
+    <>
     <section
       id="projects"
-      className="min-h-screen px-4 py-12 md:py-20 flex flex-col items-start justify-start md:justify-center max-w-5xl mx-auto"
+      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
       <motion.h1
         className="text-4xl md:text-5xl font-extrabold mb-12"
@@ -75,6 +76,15 @@ export default function Projects() {
         Projects
       </motion.h1>
 
+      { loading ? 
+        <motion.div
+          className="flex items-center justify-center w-full h-40"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="w-10 h-10 border-4 border-t-transparent border-white rounded-full animate-spin" />
+        </motion.div>
+      :
       <motion.div
         className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 w-full"
         ref={ref}
@@ -113,23 +123,42 @@ export default function Projects() {
             </h3>
 
             <div className="flex flex-wrap gap-3 text-gray-500 mb-3 items-center text-sm sm:text-lg">
+              {/* Description */}
+              <span className="flex items-center gap-1 text-sm hidden 2xl:block">
+                {repo.description || "No Description Provided"}
+              </span>
+
+              {/* Forks */}
               <span className="flex items-center gap-1">
                 <GitFork className="w-4 h-4" /> {repo.forks_count}
               </span>
 
+              {/* Language */}
               <span className="flex items-center gap-1">
-                <Wrench className="w-4 h-4" /> {repo.language}
+                <Wrench className="w-4 h-4" /> {repo.language || "N/A"}
               </span>
 
+              {/* Last updated */}
               <span className="flex items-center gap-1">
                 <Clock className="w-4 h-4" /> {new Date(repo.updated_at).toLocaleDateString()}
+              </span>
+
+              {/* Stars */}
+              <span className="flex items-center gap-1">
+                <Star className="w-4 h-4" /> {repo.stargazers_count}
+              </span>
+
+              {/* Open Issues */}
+              <span className="flex items-center gap-1">
+                <Wrench className="w-4 h-4 rotate-45" /> {repo.open_issues_count} issues
               </span>
             </div>
 
           </div>
         ))}
-      </motion.div>
+      </motion.div>}
 
     </section>
+    </>
   );
 }

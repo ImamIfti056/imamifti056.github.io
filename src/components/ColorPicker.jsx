@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Settings, X } from "lucide-react";
+import { X, Palette  } from "lucide-react";
 
 const themes = {
     red: "#ef4444",
@@ -21,19 +21,19 @@ export default function ThemePicker() {
   };
 
   return (
-    <div className="fixed bottom-24 md:bottom-4 right-2 lg:right-12 z-50 flex items-center flex-col-reverse gap-2">
+    <div className="fixed bottom-24 md:bottom-8 right-1 lg:right-12 z-50 flex items-center flex-col-reverse gap-2">
       {/* Toggle Button */}
       <button
         onClick={() => setShowColors(!showColors)}
         className="w-12 h-12 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-full flex items-center justify-center shadow-md transition-transform duration-300 hover:rotate-90"
       >
-        {showColors ? <X size={20} /> : <Settings size={20} />}
+        {showColors ? <X size={20} /> : <Palette size={20} />}
       </button>
 
       {/* Color Options */}
       <div
-        className={`grid grid-cols-3 gap-2 transition-all duration-300 ease-in-out ${
-          showColors ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+        className={`grid grid-cols-3 gap-2 transition-all duration-400 ease-in-out ${
+        showColors ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
         }`}
       >
         {Object.entries(themes).map(([key, value]) => (

@@ -43,25 +43,26 @@ export default function Education() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <section
+    <>
+      <section
       id="education"
-      className="min-h-screen flex flex-col items-center justify-center px-4 -mt-16"
+      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
       <motion.h1
-        className="text-4xl md:text-5xl font-extrabold mb-12"
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        viewport={{ once: true }}
-        variants={fadeUp}
-        custom={0}
-        transition={{ duration: 0.6 }}
-      >
-        Education
-      </motion.h1>
+      className="text-3xl md:text-5xl font-extrabold self-start md:mb-12 mb-8"
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      viewport={{ once: true }}
+      variants={fadeUp}
+      custom={0}
+      transition={{ duration: 0.6 }}
+    >
+      Education
+      </motion.h1>  
 
       <motion.div
-        className="grid gap-6 md:gap-8 max-w-5xl w-full md:grid-cols-3"
+        className="grid gap-4 md:gap-8 max-w-5xl w-full md:grid-cols-3"
         custom={1}
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
@@ -74,7 +75,7 @@ export default function Education() {
         {educationData.map((edu, i) => (
           <div
             key={edu.title}
-            className="rounded-2xl shadow-lg border-l-4 border-[var(--primary-bg)] p-2 md:p-6 text-center hover:shadow-xl transition"
+            className="md:rounded-2xl rounded-xl shadow-lg border-l-4 border-[var(--primary-bg)] p-2 md:p-6 text-center hover:shadow-xl transition"
           >
             <div className="flex justify-center mb-2 md:mb-4 text-[var(--primary-bg)]">{edu.icon}</div>
             <h2 className="text-md md:text-lg font-semibold mb-2">{edu.title}</h2>
@@ -87,5 +88,7 @@ export default function Education() {
         ))}
       </motion.div>
     </section>
+    </>
+    
   );
 }

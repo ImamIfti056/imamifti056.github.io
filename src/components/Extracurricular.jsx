@@ -8,16 +8,19 @@ const extras = [
   {
     title: "Floor Monitoring Committee Member",
     org: "Lalan Shah Hall",
+    time: '2024-25',
     icon: <ShieldCheck className="w-6 h-6" />,
   },
   {
     title: "National Children's Task Force (NCTF), Brahmanbaria",
-    org: "Organizing Secretary, 2016 – 2018",
+    org: "Organizing Secretary",
+    time: "2016 – 2018",
     icon: <Users className="w-6 h-6" />,
   },
   {
     title: "Bangladesh National Cadet Corps (BNCC)",
-    org: "Lance Corporal, 2013 – 2015",
+    org: "Lance Corporal",
+    time: "2013 – 2015",
     icon: <Flag className="w-6 h-6" />,
   },
 ];
@@ -40,9 +43,11 @@ export default function Extracurricular() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
+
+    <>
     <section
       id="extracurricular"
-      className="min-h-screen px-4 py-20 flex flex-col items-start justify-center max-w-5xl mx-auto"
+      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
       <motion.h1
         className="text-4xl md:text-5xl font-extrabold mb-10"
@@ -71,16 +76,18 @@ export default function Extracurricular() {
         {extras.map((item, i) => (
           <li
             key={i}
-            className="flex items-start gap-4"
+            className="flex items-center gap-4 border-l-4 border-[var(--primary-bg)] rounded-md pl-4 2xl:py-4"
           >
             <div className="mt-1 text-[var(--primary-bg)]">{item.icon}</div>
             <div>
-              <h2 className="text-lg font-semibold">{item.title}</h2>
-              <p className="text-sm">{item.org}</p>
+              <h2 className="text-lg 2xl:text-2xl font-semibold">{item.title}</h2>
+              <p className="text-sm 2xl:text-lg">{item.org}</p>
+              <p className="text-sm 2xl:text-lg">{item.time}</p>
             </div>
           </li>
         ))}
       </motion.ul>
     </section>
+    </>
   );
 }

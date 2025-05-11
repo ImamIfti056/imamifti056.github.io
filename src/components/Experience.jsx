@@ -35,9 +35,11 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <section
+
+    <>
+      <section
       id="experience"
-      className="min-h-screen px-4 py-20 flex flex-col items-start justify-start md:justify-center max-w-5xl mx-auto"
+      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
       <motion.h1
         className="text-4xl md:text-5xl font-extrabold mb-12"
@@ -88,5 +90,7 @@ export default function Experience() {
         ))}
       </motion.div>
     </section>
+    </>
+    
   );
 }
