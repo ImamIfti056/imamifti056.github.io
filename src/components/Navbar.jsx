@@ -9,6 +9,7 @@ import {
     Mail,
     Wand2,
     Home,
+    FolderKanban 
 } from "lucide-react";
 import { Link, NavLink } from 'react-router-dom';
 
@@ -17,7 +18,7 @@ const sections = [
     { id: "about", label: "About Me", icon: <User  /> },
     { id: "skills", label: "Skills", icon: <Wand2  /> },
     { id: "education", label: "Education", icon: <BookOpen /> },
-    { id: "projects", label: "Projects", icon: <Award /> },
+    { id: "projects", label: "Projects", icon: <FolderKanban /> },
     { id: "experience", label: "Experience", icon: <Briefcase /> },
     // { id: "achievements", label: "Achievements", icon: <Trophy /> },
     { id: "extracurricular", label: "Extracurricular", icon: <Users /> },

@@ -144,12 +144,12 @@ export default function Projects() {
               </span>
 
               {/* Stars */}
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 hidden 2xl:block">
                 <Star className="w-4 h-4" /> {repo.stargazers_count}
               </span>
 
               {/* Open Issues */}
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 hidden 2xl:block">
                 <Wrench className="w-4 h-4 rotate-45" /> {repo.open_issues_count} issues
               </span>
             </div>

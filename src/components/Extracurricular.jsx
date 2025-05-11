@@ -61,7 +61,7 @@ export default function Extracurricular() {
       >
         Extracurricular Activities
       </motion.h1>
-
+      
       <motion.ul
         className="space-y-8 w-full"
         ref={ref}
@@ -87,6 +87,7 @@ export default function Extracurricular() {
           </li>
         ))}
       </motion.ul>
+      
     </section>
     </>
   );

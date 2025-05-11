@@ -51,10 +51,10 @@ const About = () => {
         About Me
     </motion.h1>
 
-      <div className="flex flex-col-reverse md:flex-row gap-12 max-w-6xl mx-auto items-center">
+      <div className="flex flex-col-reverse md:flex-row gap-6 2xl:gap-12 max-w-6xl mx-auto items-center">
         {/* Left: About Text */}
         <motion.div
-          className="md:w-1/2 text-base 2xl:text-lg leading-relaxed "
+          className="md:w-1/2 text-sm 2xl:text-xl leading-relaxed "
           ref={ref}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -130,7 +130,7 @@ const About = () => {
                     </li>
                     <li className="flex items-center gap-2">
                     <Headphones size={18} />{" "}
-                    <span>Lo-fi beats, rain, and solving bugs</span>
+                    <span>Bangla Band Songs, rain, and solving bugs</span>
                     </li>
                 </ul>
             </div>
