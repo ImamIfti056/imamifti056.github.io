@@ -25,7 +25,8 @@ function App() {
 
       {/* Your content goes here */}
       <div className="relative z-30 md:py-12 md:px-24 px-4">
-        <div className={`min-h-screen flex`}>
+        <div className={` flex`} style={{ height: 'calc(100vh - 70px)' }}
+        >
             {/* Sidebar for Desktop */}
             <Navbar/>
 
