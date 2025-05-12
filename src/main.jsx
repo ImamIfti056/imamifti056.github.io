@@ -10,7 +10,6 @@ import App from './App.jsx'
 import Contact from './components/Contact.jsx';
 import Experience from './components/Experience.jsx';
 import Extracurricular from './components/Extracurricular.jsx';
-import Achievements from './components/Achievements.jsx';
 import Projects from './components/Projects.jsx';
 import Intro from './components/Intro.jsx';
 import NotFoundPage from './components/NotFoundPage.jsx';
@@ -42,10 +41,6 @@ const router = createBrowserRouter([
       {
         path: '/extracurricular',
         element: <Extracurricular/>
-      },
-      {
-        path: '/achievements',
-        element: <Achievements/>
       },
       {
         path: '/projects',

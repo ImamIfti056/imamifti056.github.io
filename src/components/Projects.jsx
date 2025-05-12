@@ -86,7 +86,7 @@ export default function Projects() {
         </motion.div>
       :
       <motion.div
-        className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 w-full"
+        className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] 2xl:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 w-full"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -99,7 +99,7 @@ export default function Projects() {
         {repos && repos.map((repo) => (
           <div
             key={repo.id}
-            className="p-4 sm:p-5 rounded-lg border-l-2 border-[var(--primary-bg)]"
+            className="p-4 sm:p-5 rounded-lg border-l-2 border-[var(--primary-bg)] 2xl"
           >
             <h3 className="text-sm sm:text-lg font-semibold mb-2 flex gap-4">
               {repo.name}
@@ -124,34 +124,36 @@ export default function Projects() {
 
             <div className="flex flex-wrap gap-3 text-gray-500 mb-3 items-center text-sm sm:text-lg">
               {/* Description */}
-              <span className="flex items-center gap-1 text-sm hidden 2xl:block">
+              <p className="flex items-center gap-1 text-sm hidden 2xl:block italic">
                 {repo.description || "No Description Provided"}
-              </span>
+              </p>
 
               {/* Forks */}
               <span className="flex items-center gap-1">
-                <GitFork className="w-4 h-4" /> {repo.forks_count}
+                <GitFork className="w-4 h-4 text-[var(--primary-bg)]" /> {repo.forks_count}
               </span>
 
               {/* Language */}
               <span className="flex items-center gap-1">
-                <Wrench className="w-4 h-4" /> {repo.language || "N/A"}
+                <Wrench className="w-4 h-4 text-yellow-400" /> {repo.language || "N/A"}
               </span>
 
               {/* Last updated */}
               <span className="flex items-center gap-1">
-                <Clock className="w-4 h-4" /> {new Date(repo.updated_at).toLocaleDateString()}
+                <Clock className="w-4 h-4 text-blue-400" /> {new Date(repo.updated_at).toLocaleDateString()}
               </span>
 
               {/* Stars */}
-              <span className="flex items-center gap-1 hidden 2xl:block">
-                <Star className="w-4 h-4" /> {repo.stargazers_count}
-              </span>
+              <div className="flex items-center gap-1 hidden 2xl:flex">
+                <Star className="w-4 h-4 text-yellow-300" />
+                <span>{repo.stargazers_count}</span>
+              </div>
 
               {/* Open Issues */}
-              <span className="flex items-center gap-1 hidden 2xl:block">
-                <Wrench className="w-4 h-4 rotate-45" /> {repo.open_issues_count} issues
-              </span>
+              <div className="flex items-center gap-1 hidden 2xl:flex">
+                <Wrench className="w-4 h-4 rotate-45 text-red-400" />
+                <span>{repo.open_issues_count} issues</span>
+              </div>
             </div>
 
           </div>

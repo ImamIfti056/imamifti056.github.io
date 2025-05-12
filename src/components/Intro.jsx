@@ -4,7 +4,7 @@ import { FaDev } from "react-icons/fa";
 import { motion, useInView  } from 'framer-motion'
 import { useRef } from "react";
 import cv from "../assets/Imamul_Islam_Ifti_CV.pdf"
-import profileImg from "../assets/profile.png"
+import profileImg from "../assets/profile5.jpg"
 
 
 const fadeUp = {
@@ -47,17 +47,10 @@ const Intro = () => {
     <>
     <section
       id="intro"
-      className="min-h-screen flex flex-col items-center justify-center px-4"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4"
     >
-      {/* <img
-        src={profileImg}
-        alt="Profile"
-        className="w-40 h-40 md:w-52 md:h-52 rounded-full shadow-lg mx-auto transition duration-300"
-      /> */}
-
-
-      <motion.h1
-        className="text-4xl md:text-5xl font-extrabold mb-6 text-center"
+      <motion.div
+        className='md:mr-24 mb-12 md:mb-0'
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -66,17 +59,37 @@ const Intro = () => {
         custom={0}
         transition={{ duration: 0.6 }}
       >
-        Hi, I’m <span className='text-[var(--primary-bg)]'>Ifti</span>
-      </motion.h1>
+        <img
+  src={profileImg}
+  alt="Profile"
+  className="w-40 h-40 md:w-52 md:h-52 2xl:w-64 2xl:h-64 rounded-full shadow-lg mx-auto transition duration-300 
+             brightness-75 contrast-110"
+/>
 
-      <motion.h2
-        className="text-2xl md:text-3xl font-semibold mb-4 text-center"
+      </motion.div>
+      
+      <div>
+        <motion.h1
+        className="text-4xl md:text-5xl font-extrabold mb-6 text-center"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         viewport={{ once: true }}
         variants={fadeUp}
         custom={1}
+        transition={{ duration: 0.6 }}
+      >
+        Hi, I’m <span className='text-[var(--primary-bg)]'>Ifti</span>
+      </motion.h1>
+
+      <motion.h2
+        className="text-xl md:text-3xl font-semibold mb-4 text-center"
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={2}
         transition={{ duration: 0.6 }}
       >
         Full-Stack Developer | Tech Enthusiast
@@ -101,7 +114,7 @@ const Intro = () => {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         viewport={{ once: true }}
         variants={fadeUp}
-        custom={2}
+        custom={3}
         transition={{ duration: 0.6 }}
       >
         Passionate about building scalable web applications and exploring innovative solutions. Welcome to my digital space — let’s create something meaningful.
@@ -109,12 +122,12 @@ const Intro = () => {
       
       {/* Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 items-center sm:items-center 2xl:mt-8"
+          className="flex flex-col sm:flex-row gap-4 items-center sm:items-center 2xl:mt-8 justify-center"
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           variants={fadeUp}
-          custom={3}
+          custom={4}
           transition={{ duration: 0.6 }}
         >
           <a
@@ -162,6 +175,7 @@ const Intro = () => {
             </a>
           </div>
         </motion.div>
+      </div>      
     </section>
     </>
   )
