@@ -22,7 +22,7 @@ export default function ThemePicker({showParticles, setShowParticles}) {
   };
 
   return (
-    <div className="fixed bottom-24 md:bottom-8 right-1 lg:right-12 z-50 flex items-center flex-col-reverse gap-2">
+    <div className="fixed bottom-24 md:bottom-8 right-2 lg:right-12 z-50 flex items-center flex-col-reverse gap-2">
       {/* Toggle Button */}
       <button
         onClick={() => setShowColors(!showColors)}
@@ -33,7 +33,7 @@ export default function ThemePicker({showParticles, setShowParticles}) {
 
       {/* Color Options */}
       <div
-        className={`grid grid-cols-3 gap-2 transition-all duration-400 ease-in-out ${
+        className={`grid grid-cols-1 gap-2 transition-all duration-400 ease-in-out ${
         showColors ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
         }`}
       >
@@ -47,7 +47,7 @@ export default function ThemePicker({showParticles, setShowParticles}) {
         ))}
         <button
               onClick={toggleParticles}
-              className="text-[var(--primary-bg)] px-3 py-1 rounded"
+              className="text-[var(--primary-bg)] py-1 rounded"
             >
               {showParticles ? <Sparkles className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
             </button>
