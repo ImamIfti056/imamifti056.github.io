@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-const ParticlesBackground = () => {
+const ParticlesBackground = ({showParticles}) => {
     const [init, setInit] = useState(false);
+    
     useEffect(() => {
         initParticlesEngine(async (engine) => {
           // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
@@ -94,7 +95,7 @@ const ParticlesBackground = () => {
         [],
       );
     
-      if (init) {
+      if (init && showParticles) {
         return (
           <Particles
             id="tsparticles"

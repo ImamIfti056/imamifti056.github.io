@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
-	createBrowserRouter,
+	createHashRouter,
 	RouterProvider,
 } from "react-router-dom";
 import './index.css'
@@ -16,7 +16,7 @@ import NotFoundPage from './components/NotFoundPage.jsx';
 import Skills from './components/Skills.jsx';
 import About from './components/About.jsx';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: "/",
 		element: <App />,
@@ -56,10 +56,7 @@ const router = createBrowserRouter([
       },
     ]
   }
-],
-{
-  basename: '/',
-}
+]
 )
 
 

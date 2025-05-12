@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar, {MobileNavbar} from "./components/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import ColorPicker from "./components/ColorPicker";
@@ -9,12 +9,13 @@ import ParticlesBackground from "./components/ParticlesBackground";
 
 function App() { 
   const location = useLocation();  
-
+  const [showParticles, setShowParticles] = useState(true);
+  
   return (   
     <div className={`relative w-full h-screen overflow-hidden text-white`}>
       {/* Background: Dark Base */}
       <div className="absolute inset-0 bg-black clip-angled z-10" >
-        <ParticlesBackground/>
+        <ParticlesBackground showParticles={showParticles}/>
       </div>
 
       {/* Background: Accent Overlay (top right corner) */}
@@ -34,7 +35,7 @@ function App() {
             <MobileNavbar/>
 
             {/* Color picker */}
-            <ColorPicker/>
+            <ColorPicker showParticles={showParticles} setShowParticles={setShowParticles}/>
 
             {/* Main Content */}
             <div className="flex-1">

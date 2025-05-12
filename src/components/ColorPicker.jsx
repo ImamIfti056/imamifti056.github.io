@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Palette  } from "lucide-react";
+import { X, Settings, Sparkles, EyeOff  } from "lucide-react";
 
 const themes = {
     red: "#ef4444",
@@ -12,8 +12,9 @@ const themes = {
     cyan: "#06b6d4",        // Tailwind cyan-400
 };
 
-export default function ThemePicker() {
+export default function ThemePicker({showParticles, setShowParticles}) {
   const [showColors, setShowColors] = useState(false);
+  const toggleParticles = () => setShowParticles(!showParticles);
 
   const changeBrandColor = (bg) => {
     document.documentElement.style.setProperty('--primary-bg', bg);
@@ -27,7 +28,7 @@ export default function ThemePicker() {
         onClick={() => setShowColors(!showColors)}
         className="w-12 h-12 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-full flex items-center justify-center shadow-md transition-transform duration-300 hover:rotate-90"
       >
-        {showColors ? <X size={20} /> : <Palette size={20} />}
+        {showColors ? <X size={20} /> : <Settings size={20} />}
       </button>
 
       {/* Color Options */}
@@ -40,10 +41,16 @@ export default function ThemePicker() {
           <button
             key={key}
             onClick={() => changeBrandColor(value)}
-            className="w-6 h-6 rounded-full border-2 border-white shadow"
+            className="w-5 h-5 rounded-full border-2 border-white shadow"
             style={{ backgroundColor: value }}
           />
         ))}
+        <button
+              onClick={toggleParticles}
+              className="text-[var(--primary-bg)] px-3 py-1 rounded"
+            >
+              {showParticles ? <Sparkles className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
+            </button>
       </div>
     </div>
   );
