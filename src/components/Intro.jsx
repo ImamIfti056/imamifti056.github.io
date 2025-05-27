@@ -3,7 +3,7 @@ import { Github, Linkedin, Facebook, Download } from 'lucide-react'
 import { FaDev } from "react-icons/fa";
 import { motion, useInView  } from 'framer-motion'
 import { useRef } from "react";
-import cv from "../assets/Imamul_Islam_Ifti_CV.pdf"
+import cv from "../assets/Imamul_Islam_Ifti_RESUME.pdf"
 import profileImg from "../assets/profile5.jpg"
 
 
