@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const experiences = [
   {
-    title: "Learnathon 3.0 | Participant",
+      title: "Learnathon 3.0 | Runner-up, Python Stack",
     company: "Organized by Geeky Solution",
     period: "December 2024 - April 2025",
     description: [

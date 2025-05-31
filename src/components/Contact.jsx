@@ -88,11 +88,11 @@ export default function Contact() {
           </div>
           <div className="flex items-center gap-4">
             <Phone className="w-6 h-6 text-[var(--primary-bg)]" />
-            <span>+880 1999 372154</span>
+            <span>+880 1610 617558</span>
           </div>
           <div className="flex items-center gap-4">
             <MapPin className="w-6 h-6 text-[var(--primary-bg)]" />
-            <span>Lalan Shah Hall, KUET, <br /> Fulbarigate, Khulna, Bangladesh</span>
+            <span>Kandipara, Brahmanbaria, Bangladesh</span>
           </div>
         </motion.div>
 

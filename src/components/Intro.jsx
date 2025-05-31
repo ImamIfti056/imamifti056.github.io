@@ -3,7 +3,7 @@ import { Github, Linkedin, Facebook, Download } from 'lucide-react'
 import { FaDev } from "react-icons/fa";
 import { motion, useInView  } from 'framer-motion'
 import { useRef } from "react";
-import cv from "../assets/Imamul_Islam_Ifti_RESUME.pdf"
+import cv from "../assets/Imamul_Islam_Ifti_CV.pdf"
 import profileImg from "../assets/profile5.jpg"
 
 
@@ -92,7 +92,7 @@ const Intro = () => {
         custom={2}
         transition={{ duration: 0.6 }}
       >
-        Full-Stack Developer | Tech Enthusiast
+        Aspiring Software Engineer | Tech Enthusiast
       </motion.h2>
       <motion.h3
         className="text-lg md:text-xl font-medium italic text-center mb-4 text-[var(--primary-bg)]"
