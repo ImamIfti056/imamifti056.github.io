@@ -92,7 +92,7 @@ const Intro = () => {
         custom={2}
         transition={{ duration: 0.6 }}
       >
-        Aspiring Software Engineer | Tech Enthusiast
+        Junior Software Engineer | Tech Enthusiast
       </motion.h2>
       <motion.h3
         className="text-lg md:text-xl font-medium italic text-center mb-4 text-[var(--primary-bg)]"
