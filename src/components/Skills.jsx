@@ -4,25 +4,26 @@ import {
   SiJavascript,
   SiReact,
   SiTailwindcss,
-  SiFramer,
   SiDjango,
   SiPostgresql,
   SiFirebase,
+  SiShadcnui
 } from "react-icons/si";
 import { FaInfinity } from "react-icons/fa6";
 import { FaGitAlt } from "react-icons/fa";
 import { RiCheckboxCircleLine } from "react-icons/ri";
+import { AiOutlineSafety } from "react-icons/ai"; // Feather icons
 
 const skillGroups = {
   "Frontend": [
     { name: "JavaScript", icon: SiJavascript },
     { name: "React.js", icon: SiReact },
     { name: "Tailwind CSS", icon: SiTailwindcss },
-    { name: "Framer Motion", icon: SiFramer },
+    { name: "Shadcn", icon: SiShadcnui },
   ],
   "Backend": [
     { name: "Django", icon: SiDjango },
-    { name: "DRF", icon: SiDjango },
+    { name: "Simple JWT", icon: AiOutlineSafety },
     { name: "PostgreSQL", icon: SiPostgresql },
     { name: "Firebase", icon: SiFirebase },
   ],

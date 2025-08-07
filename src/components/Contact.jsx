@@ -92,7 +92,7 @@ export default function Contact() {
           </div>
           <div className="flex items-center gap-4">
             <MapPin className="w-6 h-6 text-[var(--primary-bg)]" />
-            <span>Kandipara, Brahmanbaria, Bangladesh</span>
+            <span>Dhaka, Bangladesh</span>
           </div>
         </motion.div>
 

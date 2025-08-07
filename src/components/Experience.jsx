@@ -5,7 +5,15 @@ import { useRef } from "react";
 
 const experiences = [
   {
-      title: "Learnathon 3.0 | Runner-up, Python Stack",
+    title: "Junior Software Engineer",
+    company: "Apploye Inc.",
+    period: "July 2025 - Present",
+    description: [
+      "Gaining hands-on experience in full-stack development using React and Django at a SaaS company."
+    ],
+  },
+  {
+    title: "Learnathon 3.0 | Runner-up, Python Stack",
     company: "Organized by Geeky Solution",
     period: "December 2024 - April 2025",
     description: [

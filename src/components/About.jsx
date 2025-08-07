@@ -105,7 +105,7 @@ const About = () => {
                     <Phone size={18} /> <span>+880 1999 372154</span>
                     </li>
                     <li className="flex items-center gap-2">
-                    <MapPin size={18} /> <span>Khulna, Bangladesh</span>
+                    <MapPin size={18} /> <span>Dhaka, Bangladesh</span>
                     </li>
                     <li className="flex items-center gap-2">
                     <Compass size={18} /> <span>Brahmanbaria, Bangladesh</span>
@@ -124,10 +124,10 @@ const About = () => {
                     <Languages size={18} />{" "}
                     <span>Bengali (Native), English (Fluent)</span>
                     </li>
-                    <li className="flex items-center gap-2">
+                    {/* <li className="flex items-center gap-2">
                     <BookOpen size={18} />{" "}
                     <span>Currently exploring Docker & DevOps</span>
-                    </li>
+                    </li> */}
                     <li className="flex items-center gap-2">
                     <Headphones size={18} />{" "}
                     <span>Bangla Band Songs, rain, and solving bugs</span>

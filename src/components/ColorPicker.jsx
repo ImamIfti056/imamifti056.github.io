@@ -2,15 +2,13 @@ import { useState } from "react";
 import { X, Settings, Sparkles, EyeOff  } from "lucide-react";
 
 const themes = {
-    red: "#ef4444",
-    amber: "#f59e0b",       // Tailwind amber-500
-    teal: "#0d9488",        // Tailwind teal-600
-    violet: "#8b5cf6",      // Tailwind violet-500
-    green: "#10b981",       // Tailwind emerald-500
-    rosePink: "#d946ef",    // Tailwind fuchsia-400
-    lime: "#84cc16",        // Tailwind lime-500
-    cyan: "#06b6d4",        // Tailwind cyan-400
+  electricBlue: "#3b82f6",  // Tailwind blue-500
+  neonGreen: "#22c55e",     // Tailwind green-500
+  hotPink: "#ec4899",       // Tailwind pink-500
+  amberGold: "#f59e0b",     // Tailwind amber-500
+  skyCyan: "#0ea5e9",       // Tailwind sky-500
 };
+
 
 export default function ThemePicker({showParticles, setShowParticles}) {
   const [showColors, setShowColors] = useState(false);
