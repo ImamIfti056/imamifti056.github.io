@@ -9,7 +9,8 @@ import {
     Mail,
     Wand2,
     Home,
-    FolderKanban 
+    FolderKanban,
+    FileText
 } from "lucide-react";
 import { Link, NavLink } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ const sections = [
     { id: "skills", label: "Skills", icon: <Wand2  /> },
     { id: "education", label: "Education", icon: <BookOpen /> },
     { id: "projects", label: "Projects", icon: <FolderKanban /> },
+    { id: "blogs", label: "Blogs", icon: <FileText /> },
     { id: "experience", label: "Experience", icon: <Briefcase /> },
     // { id: "achievements", label: "Achievements", icon: <Trophy /> },
     { id: "extracurricular", label: "Extracurricular", icon: <Users /> },

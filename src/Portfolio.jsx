@@ -6,6 +6,7 @@ import Achievements from "./components/Achievements";
 import Extracurricular from "./components/Extracurricular";
 import Contact from "./components/Contact";
 import Intro from "./components/Intro";
+import Blogs from "./components/Blogs";
 import Navbar, {MobileNavbar} from "./components/Navbar";
 
 const themes = {
@@ -29,6 +30,7 @@ export default function Portfolio() {
         <Intro />
         <Education />
         <Projects />
+        <Blogs />
         <Experience />
         {/* <Achievements /> */}
         <Extracurricular />

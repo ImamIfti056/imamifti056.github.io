@@ -11,6 +11,7 @@ import Contact from './components/Contact.jsx';
 import Experience from './components/Experience.jsx';
 import Extracurricular from './components/Extracurricular.jsx';
 import Projects from './components/Projects.jsx';
+import Blogs from './components/Blogs.jsx';
 import Intro from './components/Intro.jsx';
 import NotFoundPage from './components/NotFoundPage.jsx';
 import Skills from './components/Skills.jsx';
@@ -45,6 +46,10 @@ const router = createHashRouter([
       {
         path: '/projects',
         element: <Projects/>
+      },
+      {
+        path: '/blogs',
+        element: <Blogs/>
       },
       {
         path: '/skills',
