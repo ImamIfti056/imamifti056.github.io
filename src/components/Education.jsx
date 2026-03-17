@@ -1,4 +1,4 @@
-import { GraduationCap, School, Calendar, Medal } from "lucide-react";
+import { GraduationCap, School, Calendar, Medal, BadgeCheck } from "lucide-react";
 import { motion, useInView  } from "framer-motion";
 import { useRef } from "react";
 
@@ -8,18 +8,21 @@ const educationData = [
     title: "B.Sc. in Electronics and Communication Engineering",
     institution: "Khulna University of Engineering & Technology (KUET)",
     year: "2025",
+    result: "3.51/4.00",
     icon: <GraduationCap className="h-6 w-6 2xl:h-8 2xl:w-8" />,
   },
   {
     title: "Higher Secondary Certificate (HSC)",
     institution: "Brahmanbaria Government College, Brahmanbaria",
     year: "2019",
+    result: "4.83/5.00",
     icon: <School className="h-6 w-6 2xl:h-8 2xl:w-8" />,
   },
   {
     title: "Secondary School Certificate (SSC)",
     institution: "Annada Govt. High School, Brahmanbaria",
     year: "2017",
+    result: "5.00/5.00",
     icon: <School className="h-6 w-6 2xl:h-8 2xl:w-8" />,
     hiddenOnMobile: true, // custom flag
   }
@@ -95,9 +98,15 @@ export default function Education() {
             </div>
             <h2 className="text-md md:text-lg font-semibold mb-2">{edu.title}</h2>
             <p className="text-sm">{edu.institution}</p>
-            <div className="flex justify-center items-center gap-2 mt-3 text-sm">
-              <Calendar className="h-4 w-4 text-[var(--primary-bg)]" />
-              <span>Passing Year: {edu.year}</span>
+            <div className="flex justify-between items-center gap-2 mt-3 text-sm">
+              <div className="flex justify-center items-center gap-2 text-sm">
+                <Calendar className="h-4 w-4 text-[var(--primary-bg)]" />
+                <span className="text-left">Year: {edu.year}</span>
+              </div>
+              <div className="flex justify-center items-center gap-2 text-sm">
+                <BadgeCheck className="h-4 w-4 text-[var(--primary-bg)]" />
+                <span className="text-left">Result: {edu.result}</span>
+              </div>
             </div>
           </div>
         ))}

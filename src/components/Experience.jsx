@@ -5,11 +5,11 @@ import { useRef } from "react";
 
 const experiences = [
   {
-    title: "Junior Software Engineer",
+    title: "Software Engineer (L1)",
     company: "Apploye Inc.",
     period: "July 2025 - Present",
     description: [
-      "Gaining hands-on experience in full-stack development using React and Django at a SaaS company."
+      "Gaining hands-on experience in full-stack development using React, Go and Django at a SaaS company."
     ],
   },
   {

@@ -5,6 +5,7 @@ import {
   SiReact,
   SiTailwindcss,
   SiDjango,
+  SiGo,
   SiPostgresql,
   SiFirebase,
   SiShadcnui
@@ -23,6 +24,7 @@ const skillGroups = {
   ],
   "Backend": [
     { name: "Django", icon: SiDjango },
+    { name: "Golang", icon: SiGo },
     { name: "Simple JWT", icon: AiOutlineSafety },
     { name: "PostgreSQL", icon: SiPostgresql },
     { name: "Firebase", icon: SiFirebase },

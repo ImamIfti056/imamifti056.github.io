@@ -63,7 +63,7 @@ const About = () => {
         >
             
           <p className="mb-4">
-            <span className="text-3xl text-[var(--primary-bg)]">&lt;/&gt;</span> I'm Imamul Islam Ifti — a Full-Stack Developer. I'm doing my Bachelor in
+            <span className="text-3xl text-[var(--primary-bg)]">&lt;/&gt;</span> I'm Imamul Islam Ifti — a Full-Stack Developer. I have completed my Bachelor in
             Electronics and Communication Engineering from KUET. I’m passionate
             about crafting <span className="text-[var(--primary-bg)]">web applications</span> that not only function smoothly but
             also provide real value to users.
@@ -97,12 +97,6 @@ const About = () => {
                     </li>
                     <li className="flex items-center gap-2">
                     <Droplet size={18} /> <span>B (+ve)</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                    <Mail size={18} /> <span>imamul.ifti@gmail.com</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                    <Phone size={18} /> <span>+880 1999 372154</span>
                     </li>
                     <li className="flex items-center gap-2">
                     <MapPin size={18} /> <span>Dhaka, Bangladesh</span>
