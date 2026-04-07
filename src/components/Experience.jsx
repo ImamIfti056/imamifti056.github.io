@@ -50,7 +50,7 @@ export default function Experience() {
       className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
       <motion.h1
-        className="text-4xl md:text-5xl font-extrabold mb-12"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 md:mb-12"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -78,7 +78,7 @@ export default function Experience() {
             key={exp.title}
             className="border-l-4 border-[var(--primary-bg)] pl-6 group hover:shadow-lg rounded-md transition py-4"
           >
-            <h2 className="text-2xl mb-4 font-semibold">{exp.title}</h2>
+            <h2 className="text-xl sm:text-2xl mb-3 sm:mb-4 font-semibold">{exp.title}</h2>
 
             <div className="flex items-center gap-2 mb-1 font-medium text-sm text-muted-foreground">
               <Briefcase className="w-4 h-4 text-[var(--primary-bg)]" />

@@ -18,16 +18,9 @@ function App() {
         <ParticlesBackground showParticles={showParticles}/>
       </div>
 
-      {/* Background: Accent Overlay (top right corner) */}
-      <div className={`absolute inset-0 bg-[var(--primary-bg)] clip-accent z-20`} />
-
-      {/* Bottom-left triangle */}
-      <div className={`absolute bottom-0 left-0 w-32 h-32 bg-[var(--primary-bg)] clip-triangle z-30`} />
-
       {/* Your content goes here */}
-      <div className="relative z-30 md:py-12 md:px-24 px-4">
-        <div className={` flex`} style={{ height: 'calc(100vh - 70px)' }}
-        >
+      <div className="relative z-30 md:py-12 md:pl-20 lg:pl-28 md:pr-12 lg:pr-20 px-4">
+        <div className="flex" style={{ height: 'calc(100vh - 70px)' }}>
             {/* Sidebar for Desktop */}
             <Navbar/>
 
@@ -38,14 +31,13 @@ function App() {
             <ColorPicker showParticles={showParticles} setShowParticles={setShowParticles}/>
 
             {/* Main Content */}
-            <div className="flex-1">
+            <div className="flex-1 overflow-y-auto pb-20 md:pb-0 scroll-smooth">
               <ScrollToNavigate />
               <AnimatePresence mode="wait">
                 <Outlet key={location.pathname} />
               </AnimatePresence>
             </div>
 
-            
           </div>
       </div>
     </div>

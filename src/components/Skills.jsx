@@ -59,7 +59,7 @@ export default function Skills() {
       className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
       <motion.h1
-        className="text-3xl md:text-5xl font-extrabold md:mb-6 mb-4"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold md:mb-6 mb-4"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -88,7 +88,7 @@ export default function Skills() {
             variants={fadeUp}
             custom={index + 2}
           >
-            <h2 className="text-xl font-semibold mb-4 text-[var(--primary-bg)]">{category}</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-[var(--primary-bg)]">{category}</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm md:text-base">
               {skills.map(({ name, icon: Icon }) => (
                 <div

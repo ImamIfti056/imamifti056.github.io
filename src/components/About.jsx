@@ -39,7 +39,7 @@ const About = () => {
       className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
     <motion.h1
-        className="text-4xl md:text-5xl font-extrabold mb-10"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 md:mb-10"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}

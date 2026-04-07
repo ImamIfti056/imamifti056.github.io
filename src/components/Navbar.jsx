@@ -12,7 +12,7 @@ import {
     FolderKanban,
     FileText
 } from "lucide-react";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const sections = [
     { id: "", label: "Ifti", icon: <Home  /> },
@@ -58,18 +58,27 @@ const Navbar = () => {
 
 export const MobileNavbar = () => {
     return (
-        <nav className="md:hidden fixed bottom-0 left-0 w-full bg-[var(--primary-bg)] text-[var(--primary-text)] bg-opacity-90 shadow-lg flex justify-around py-4">
-        {sections.map(({ id, icon }) => (
-          <Link
-            key={id}
-            to={`/${id}`}
-            className="flex items-center justify-center w-full py-2 rounded"
-          >
-            {icon}
-          </Link>
-        ))}
-      </nav>
-    )
+        <nav className="md:hidden fixed bottom-0 left-0 w-full bg-black/90 backdrop-blur-sm border-t border-[var(--primary-bg)]/30 shadow-lg z-50">
+          <div className="flex overflow-x-auto scrollbar-hide">
+            {sections.map(({ id, icon, label }) => (
+              <NavLink
+                key={id}
+                to={`/${id}`}
+                className={({ isActive }) =>
+                  `flex flex-col items-center justify-center min-w-[4rem] flex-1 py-2 px-1 text-xs gap-1 transition-colors ${
+                    isActive
+                      ? 'text-[var(--primary-bg)]'
+                      : 'text-gray-400 hover:text-[var(--primary-bg)]'
+                  }`
+                }
+              >
+                <span className="w-5 h-5 flex items-center justify-center">{icon}</span>
+                <span className="truncate w-full text-center text-[10px] leading-tight">{label.split(' ')[0]}</span>
+              </NavLink>
+            ))}
+          </div>
+        </nav>
+    );
 }
 
 export default Navbar

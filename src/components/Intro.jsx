@@ -50,7 +50,7 @@ const Intro = () => {
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4"
     >
       <motion.div
-        className='md:mr-24 mb-12 md:mb-0'
+        className='md:mr-16 lg:mr-24 mb-8 md:mb-0'
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}

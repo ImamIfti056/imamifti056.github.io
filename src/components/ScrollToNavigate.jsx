@@ -8,6 +8,7 @@ const routeOrder = [
   '/skills',
   '/education',
   '/projects',
+  '/blogs',
   '/experience',
   '/extracurricular',
   '/contact',

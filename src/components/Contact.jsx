@@ -59,7 +59,7 @@ export default function Contact() {
       className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
     >
       <motion.h1
-        className="text-4xl md:text-5xl font-extrabold mb-10 w-full max-w-3xl"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 md:mb-10 w-full max-w-3xl"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -114,21 +114,21 @@ export default function Contact() {
             type="text"
             placeholder="Your Name"
             name='name'
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 bg-gray-900 text-white border border-gray-700 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary-bg)]"
             required
           />
           <input
             type="email"
             placeholder="Your Email"
             name="email"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 bg-gray-900 text-white border border-gray-700 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary-bg)]"
             required
           />
           <textarea
             rows={5}
             name="message"
             placeholder="Your Message"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 bg-gray-900 text-white border border-gray-700 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary-bg)]"
             required
           ></textarea>
           <button
