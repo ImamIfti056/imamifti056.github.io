@@ -78,7 +78,7 @@ export default function Skills() {
         A snapshot of my core technical skills, frameworks, and tools I've worked with throughout my development journey.
       </motion.p>
 
-      <div className="w-full space-y-10">
+      <div className="w-full space-y-6 md:space-y-10">
         {Object.entries(skillGroups).map(([category, skills], index) => (
           <motion.div
             key={category}
@@ -88,12 +88,12 @@ export default function Skills() {
             variants={fadeUp}
             custom={index + 2}
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-[var(--primary-bg)]">{category}</h2>
+            <h2 className="text-lg sm:text-2xl md:text-3xl font-semibold mb-4 text-[var(--primary-bg)]">{category}</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm md:text-base">
               {skills.map(({ name, icon: Icon }) => (
                 <div
                   key={name}
-                  className="group relative flex items-center gap-2 md:px-4 md:py-3 p-2 py-4 rounded-md shadow-md dark:bg-muted transition-all duration-400 border-l-2 border-[var(--primary-bg)] hover:scale-110"
+                  className="group relative flex items-center gap-2 md:px-4 md:py-3 p-2 py-3 rounded-md shadow-md dark:bg-muted transition-all duration-400 border-l-2 border-[var(--primary-bg)] hover:scale-110"
                 >
                   {Icon ? <Icon className="w-5 h-5 text-[var(--primary-bg)]" /> : <RiCheckboxCircleLine className="w-5 h-5 text-[var(--primary-bg)]" />}
                   <span className="font-medium">{name}</span>

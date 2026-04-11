@@ -20,11 +20,11 @@ export default function ThemePicker({showParticles, setShowParticles}) {
   };
 
   return (
-    <div className="fixed bottom-24 md:bottom-8 right-2 lg:right-12 z-50 flex items-center flex-col-reverse gap-2">
+    <div className="fixed bottom-20 md:bottom-8 right-4 lg:right-12 z-50 flex items-center flex-col-reverse gap-2">
       {/* Toggle Button */}
       <button
         onClick={() => setShowColors(!showColors)}
-        className="w-12 h-12 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-full flex items-center justify-center shadow-md transition-transform duration-300 hover:rotate-90"
+        className="w-8 h-8 md:w-12 md:h-12 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-full flex items-center justify-center shadow-md transition-transform duration-300 hover:rotate-90"
       >
         {showColors ? <X size={20} /> : <Settings size={20} />}
       </button>

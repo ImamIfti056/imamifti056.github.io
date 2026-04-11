@@ -31,7 +31,7 @@ function App() {
             <ColorPicker showParticles={showParticles} setShowParticles={setShowParticles}/>
 
             {/* Main Content */}
-            <div className="flex-1 overflow-y-auto pb-20 md:pb-0 scroll-smooth">
+            <div className="flex-1  pb-20 md:pb-0 scroll-smooth">
               <ScrollToNavigate />
               <AnimatePresence mode="wait">
                 <Outlet key={location.pathname} />

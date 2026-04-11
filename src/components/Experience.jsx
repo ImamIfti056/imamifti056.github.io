@@ -89,9 +89,9 @@ export default function Experience() {
               <Calendar className="w-4 h-4 text-[var(--primary-bg)]" />
               {exp.period}
             </div>
-            <ul className="mt-4 space-y-2 list-disc list-inside text-sm md:text-base">
+            <ul className="mt-4 space-y-2 list-disc list-outside ml-5 text-sm md:text-base">
               {exp.description.map((point, j) => (
-                <li key={j}>{point}</li>
+                <li key={j} className="text-justify">{point}</li>
               ))}
             </ul>
           </div>

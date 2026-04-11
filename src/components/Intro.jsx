@@ -83,7 +83,7 @@ const Intro = () => {
       </motion.h1>
 
       <motion.h2
-        className="text-xl md:text-3xl font-semibold mb-4 text-center"
+        className="text-lg md:text-3xl font-semibold mb-4 text-center"
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -122,7 +122,7 @@ const Intro = () => {
       
       {/* Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 items-center sm:items-center 2xl:mt-8 justify-center"
+          className="flex flex-col sm:flex-row gap-6 items-center sm:items-center 2xl:mt-8 justify-center"
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

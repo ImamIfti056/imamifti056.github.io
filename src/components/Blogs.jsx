@@ -88,7 +88,7 @@ export default function Blogs() {
                     <img
                       src={blog.cover_image}
                       alt={blog.title}
-                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-24 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 )}
