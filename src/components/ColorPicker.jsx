@@ -3,10 +3,9 @@ import { X, Palette } from "lucide-react";
 
 const themes = {
   teal: "#0f766e",
-  indigo: "#334d8f",
-  forest: "#25634f",
+  indigo: "#4F46E5",
   graphite: "#334155",
-  amber: "#b7791f",
+  amber: "#7C3AED",
 };
 
 

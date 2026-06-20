@@ -56,10 +56,10 @@ const Navbar = () => {
       </div>
 
       <div className="nav-list">
-        <div className="nav-link">
+        {/* <div className="nav-link">
           <Sun />
           <span>Light</span>
-        </div>
+        </div> */}
         <a className="nav-link" href="https://github.com/ImamIfti056" target="_blank" rel="noreferrer">
           <Github />
           <span>View on GitHub</span>
