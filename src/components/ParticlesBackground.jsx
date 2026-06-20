@@ -19,7 +19,7 @@ const ParticlesBackground = ({showParticles}) => {
         });
       }, []);
     
-      const particlesLoaded = (container) => {
+      const particlesLoaded = () => {
         // console.log(container);
       };
     

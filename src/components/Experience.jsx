@@ -1,6 +1,4 @@
-import { motion, useInView  } from "framer-motion";
 import { Briefcase, Calendar } from "lucide-react";
-import { useRef } from "react";
 
 
 const experiences = [
@@ -25,80 +23,40 @@ const experiences = [
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2, // Increased delay for better staggered effect
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
-
 export default function Experience() {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
 
-    <>
-      <section
-      id="experience"
-      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
-    >
-      <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 md:mb-12"
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        viewport={{ once: true, amount: 0.5 }}
-        variants={fadeUp}
-        custom={0}
-        transition={{ duration: 0.6 }}
-      >
-        Experience
-      </motion.h1>
+    <section id="experience" className="page-section">
+      <div className="split-page">
+        <aside className="summary-panel">
+          <p className="page-kicker">Work history</p>
+          <h1 className="section-heading">Experience</h1>
+          <p className="page-lede">
+            Product engineering work across frontend, backend, team delivery, and maintainable full-stack systems.
+          </p>
+        </aside>
 
-      <motion.div
-        className="space-y-10 w-full"
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        viewport={{ once: true, amount: 0.5 }}
-        variants={fadeUp}
-        custom={1}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        {experiences.map((exp, i) => (
-          <div
-            key={exp.title}
-            className="border-l-4 border-[var(--primary-bg)] pl-6 group hover:shadow-lg rounded-md transition py-4"
-          >
-            <h2 className="text-xl sm:text-2xl mb-3 sm:mb-4 font-semibold">{exp.title}</h2>
-
-            <div className="flex items-center gap-2 mb-1 font-medium text-sm text-muted-foreground">
-              <Briefcase className="w-4 h-4 text-[var(--primary-bg)]" />
-              {exp.company}
-            </div>
-            
-            <div className="flex items-center gap-2 text-sm mt-1 text-muted-foreground">
-              <Calendar className="w-4 h-4 text-[var(--primary-bg)]" />
-              {exp.period}
-            </div>
-            <ul className="mt-4 space-y-2 list-disc list-outside ml-5 text-sm md:text-base">
-              {exp.description.map((point, j) => (
-                <li key={j} className="text-justify">{point}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </motion.div>
+        <div className="timeline-list">
+          {experiences.map((exp) => (
+            <article key={exp.title} className="timeline-item">
+              <h3>{exp.title}</h3>
+              <div className="chip-group">
+                <span className="chip"><Briefcase className="h-3.5 w-3.5 text-[var(--primary-bg)]" /> {exp.company}</span>
+                <span className="chip"><Calendar className="h-3.5 w-3.5 text-[var(--primary-bg)]" /> {exp.period}</span>
+              </div>
+              <ul className="mt-2 grid gap-2">
+                {exp.description.map((point) => (
+                  <li key={point} className="flex gap-3 text-sm leading-7 text-[var(--muted)]">
+                    <span className="mt-3 h-1.5 w-1.5 flex-none rounded-full bg-[var(--primary-bg)]" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
-    </>
-    
   );
 }

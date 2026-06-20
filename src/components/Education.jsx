@@ -1,6 +1,4 @@
 import { GraduationCap, School, Calendar, Medal, BadgeCheck } from "lucide-react";
-import { motion, useInView  } from "framer-motion";
-import { useRef } from "react";
 
 
 const educationData = [
@@ -38,110 +36,52 @@ const achievementsData = [
 ];
 
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
-
 
 export default function Education() {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <>
-      <section
-      id="education"
-      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
-    >
-      <motion.h1
-      className="text-3xl sm:text-4xl md:text-5xl font-extrabold self-start md:mb-12 mb-8"
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      viewport={{ once: true }}
-      variants={fadeUp}
-      custom={0}
-      transition={{ duration: 0.6 }}
-    >
-      Education
-      </motion.h1>  
+    <section id="education" className="page-section">
+      <div className="split-page">
+        <aside className="summary-panel">
+          <p className="page-kicker">Academic path</p>
+          <h1 className="section-heading">Education</h1>
+          <p className="page-lede">
+            Engineering background with a steady shift toward software systems, product delivery, and applied problem solving.
+          </p>
+        </aside>
 
-      <motion.div
-        className="grid gap-4 md:gap-8 max-w-5xl w-full md:grid-cols-3"
-        custom={1}
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        viewport={{ once: true, amount: 0.4 }}
-        variants={fadeUp}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        {educationData.map((edu, i) => (
-          <div
-            key={edu.title}
-            className={`md:rounded-2xl rounded-xl shadow-lg border-l-4 border-[var(--primary-bg)] p-4 md:p-6 text-center hover:shadow-xl transition ${
-              edu.hiddenOnMobile ? "hidden md:block" : ""
-            }`}
-          >
-            <div className="flex justify-center mb-2 md:mb-4 text-[var(--primary-bg)]">
-              {edu.icon}
+        <div>
+          <div className="timeline-list">
+            {educationData.map((edu) => (
+              <article key={edu.title} className="timeline-item">
+                <h3>{edu.title}</h3>
+                <p>{edu.institution}</p>
+                <div className="chip-group">
+                  <span className="chip"><Calendar className="h-3.5 w-3.5 text-[var(--primary-bg)]" /> {edu.year}</span>
+                  <span className="chip"><BadgeCheck className="h-3.5 w-3.5 text-[var(--primary-bg)]" /> {edu.result}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <div className="dossier-title-row">
+              <h2 className="dossier-title">Achievements</h2>
             </div>
-            <h2 className="text-md md:text-lg font-semibold mb-2">{edu.title}</h2>
-            <p className="text-sm">{edu.institution}</p>
-            <div className="flex justify-between items-center gap-2 mt-3 text-sm">
-              <div className="flex justify-center items-center gap-2 text-sm">
-                <Calendar className="h-4 w-4 text-[var(--primary-bg)]" />
-                <span className="text-left">Year: {edu.year}</span>
-              </div>
-              <div className="flex justify-center items-center gap-2 text-sm">
-                <BadgeCheck className="h-4 w-4 text-[var(--primary-bg)]" />
-                <span className="text-left">Result: {edu.result}</span>
-              </div>
+            <div className="project-list">
+              {achievementsData.map((achieve) => (
+                <article className="project-item" key={achieve.title}>
+                  <h3 className="flex items-center gap-2">
+                    <Medal size={18} />
+                    {achieve.title}
+                  </h3>
+                  <p>{achieve.position} - {achieve.year}</p>
+                </article>
+              ))}
             </div>
           </div>
-        ))}
-
-      </motion.div>
-
-      {/* Achievements Section */}
-      <motion.div
-        className="mt-12 w-full"
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-2xl font-bold mb-4">Achievements</h2>
-        <ul className="space-y-4">
-          {achievementsData.map((achieve, idx) => (
-            <li
-              key={idx}
-              className="p-4 border-l-4 border-[var(--primary-bg)] shadow-md rounded-md flex items-center gap-3"
-            >
-              <Medal className="text-[var(--primary-bg)] w-8 h-8 mt-1" />
-              <div>
-                <p className="font-semibold">{achieve.title}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  {achieve.position} – {achieve.year}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-
-      </motion.div>
-
+        </div>
+      </div>
     </section>
-    </>
-    
   );
 }

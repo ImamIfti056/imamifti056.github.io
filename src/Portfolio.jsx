@@ -17,7 +17,7 @@ const themes = {
 
 export default function Portfolio() {
   
-  const [theme, setTheme] = useState("black");
+  const [theme] = useState("black");
 
   return (
     // <div className={`min-h-screen flex ${themes[theme]} transition-all duration-300`}>

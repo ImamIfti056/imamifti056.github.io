@@ -1,46 +1,8 @@
-import { motion, useInView  } from "framer-motion";
-import { Star, GitFork, Wrench, Clock, ExternalLink } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Clock, ExternalLink, GitFork, Star, Wrench } from "lucide-react";
+import { useEffect, useState } from "react";
 import { getRepos } from "../services/getRepos";
-import { div } from "framer-motion/client";
-
-const projects = [
-  {
-    title: "KUETX – Learning Management System",
-    description:
-      "A full-stack LMS platform built using Django, React, and PostgreSQL. Supports content management, exams, user roles, and community interaction.",
-    link: "https://github.com/yourusername/kuetx-lms",
-  },
-  {
-    title: "Stock Price Predictor",
-    description:
-      "A Python project using machine learning models to predict stock prices. Built with scikit-learn and yfinance.",
-    link: "https://github.com/yourusername/stock-predictor",
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "This portfolio itself, built using React, Tailwind CSS, Framer Motion, and Lucide icons to showcase my journey.",
-    link: "https://github.com/yourusername/portfolio",
-  },
-];
-
-const fadeVariant = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
 
 export default function Projects() {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -58,109 +20,66 @@ export default function Projects() {
 }, []);
 
   return (
-    <>
-    <section
-      id="projects"
-      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
-    >
-      <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 md:mb-12"
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        viewport={{ once: true }}
-        variants={fadeVariant}
-        custom={0}
-        transition={{ duration: 0.6 }}
-      >
-        Projects
-      </motion.h1>
+    <section id="projects" className="page-section">
+      <div className="dossier-title-row">
+        <div>
+          <p className="page-kicker">Selected work</p>
+          <h1 className="section-heading">Projects</h1>
+        </div>
+        <a href="https://github.com/ImamIfti056?tab=repositories" target="_blank" rel="noreferrer" className="dossier-link">
+          View GitHub
+          <ExternalLink size={17} />
+        </a>
+      </div>
+      <p className="page-lede">
+        A live view of repositories and experiments, presented as engineering notes rather than generic tiles.
+      </p>
+      <div className="section-rule" />
 
       { loading ? 
-        <motion.div
+        <div
           className="flex items-center justify-center w-full h-40"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
-          <div className="w-10 h-10 border-4 border-t-transparent border-white rounded-full animate-spin" />
-        </motion.div>
+          <div className="h-10 w-10 animate-spin rounded-full border-4 border-[var(--line)] border-t-[var(--primary-bg)]" />
+        </div>
       :
-      <motion.div
-        className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] 2xl:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 w-full"
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        viewport={{ once: true, amount: 0.4 }}
-        variants={fadeVariant}
-        custom={1}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="project-list">
         {repos && repos.map((repo) => (
-          <div
-            key={repo.id}
-            className="p-4 sm:p-5 rounded-lg border-l-2 border-[var(--primary-bg)] 2xl"
-          >
-            <h3 className="text-sm sm:text-lg font-semibold mb-2 flex gap-4">
-              {repo.name}
+          <article key={repo.id} className="project-item">
+            <h3>{repo.name}</h3>
+            <p>{repo.description || "No description provided."}</p>
+            <div className="chip-group">
+              <span className="chip">
+                <GitFork className="h-3.5 w-3.5 text-[var(--primary-bg)]" /> {repo.forks_count}
+              </span>
+              <span className="chip">
+                <Wrench className="h-3.5 w-3.5 text-[var(--accent-warm)]" /> {repo.language || "N/A"}
+              </span>
+              <span className="chip">
+                <Clock className="h-3.5 w-3.5 text-[var(--primary-bg)]" /> {new Date(repo.updated_at).toLocaleDateString()}
+              </span>
+              <span className="chip">
+                <Star className="h-3.5 w-3.5 text-[var(--accent-warm)]" /> {repo.stargazers_count}
+              </span>
+              {repo.homepage && (
+                <a href={repo.homepage} target="_blank" rel="noreferrer" className="chip">
+                  Live
+                </a>
+              )}
+            </div>
               <a
                 href={repo.html_url}
                 target="_blank"
-                className="text-blue-600 underline flex items-center gap-1"
+                rel="noreferrer"
+                className="project-action"
+                aria-label={`Open ${repo.name} repository`}
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink size={18} />
               </a>
-
-              {repo.homepage && (
-                <a
-                  href={repo.homepage}
-                  target="_blank"
-                  className="text-green-600 underline flex items-center gap-1"
-                >
-                  <ExternalLink className="w-4 h-4" /> Live
-                </a>
-              )}
-            </h3>
-
-            <div className="flex flex-wrap gap-3 text-gray-500 mb-3 items-center text-sm sm:text-lg">
-              {/* Description */}
-              <p className="flex items-center gap-1 text-sm hidden 2xl:block italic">
-                {repo.description || "No Description Provided"}
-              </p>
-
-              {/* Forks */}
-              <span className="flex items-center gap-1">
-                <GitFork className="w-4 h-4 text-[var(--primary-bg)]" /> {repo.forks_count}
-              </span>
-
-              {/* Language */}
-              <span className="flex items-center gap-1">
-                <Wrench className="w-4 h-4 text-yellow-400" /> {repo.language || "N/A"}
-              </span>
-
-              {/* Last updated */}
-              <span className="flex items-center gap-1">
-                <Clock className="w-4 h-4 text-blue-400" /> {new Date(repo.updated_at).toLocaleDateString()}
-              </span>
-
-              {/* Stars */}
-              <div className="flex items-center gap-1 hidden 2xl:flex">
-                <Star className="w-4 h-4 text-yellow-300" />
-                <span>{repo.stargazers_count}</span>
-              </div>
-
-              {/* Open Issues */}
-              <div className="flex items-center gap-1 hidden 2xl:flex">
-                <Wrench className="w-4 h-4 rotate-45 text-red-400" />
-                <span>{repo.open_issues_count} issues</span>
-              </div>
-            </div>
-
-          </div>
+          </article>
         ))}
-      </motion.div>}
+      </div>}
 
     </section>
-    </>
   );
 }

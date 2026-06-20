@@ -1,110 +1,65 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import {
-  SiJavascript,
-  SiReact,
-  SiTailwindcss,
-  SiDjango,
-  SiGo,
-  SiPostgresql,
-  SiFirebase,
-  SiShadcnui
-} from "react-icons/si";
-import { FaInfinity } from "react-icons/fa6";
-import { FaGitAlt } from "react-icons/fa";
-import { RiCheckboxCircleLine } from "react-icons/ri";
-import { AiOutlineSafety } from "react-icons/ai"; // Feather icons
+import { Code2, Database, Layers3, Monitor } from "lucide-react";
 
-const skillGroups = {
-  "Frontend": [
-    { name: "JavaScript", icon: SiJavascript },
-    { name: "React.js", icon: SiReact },
-    { name: "Tailwind CSS", icon: SiTailwindcss },
-    { name: "Shadcn", icon: SiShadcnui },
-  ],
-  "Backend": [
-    { name: "Django", icon: SiDjango },
-    { name: "Golang", icon: SiGo },
-    { name: "Simple JWT", icon: AiOutlineSafety },
-    { name: "PostgreSQL", icon: SiPostgresql },
-    { name: "Firebase", icon: SiFirebase },
-  ],
-  "Tools & DevOps": [
-    { name: "Git & GitHub", icon: FaGitAlt },
-    { name: "CI/CD", icon: FaInfinity },
-  ],
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
+const focusGroups = [
+  {
+    label: "Languages",
+    icon: <Code2 />,
+    items: ["JavaScript", "Python", "Go", "SQL"],
+  },
+  {
+    label: "Frontend",
+    icon: <Monitor />,
+    items: ["React", "Tailwind CSS", "Shadcn", "Redux"],
+  },
+  {
+    label: "Backend",
+    icon: <Layers3 />,
+    items: ["Django", "Golang", "REST", "Simple JWT"],
+  },
+  {
+    label: "Data & Infra",
+    icon: <Database />,
+    items: ["PostgreSQL", "Git & Github", "GitHub Actions"],
+  },
+];
 
 export default function Skills() {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <>
-    <section
-      id="skills"
-      className="min-h-screen px-4 flex flex-col items-start justify-center max-w-5xl mx-auto"
-    >
-      <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold md:mb-6 mb-4"
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-      >
-        Skills
-      </motion.h1>
+    <section id="skills" className="page-section">
+      <div className="split-page">
+        <aside className="summary-panel">
+          <p className="page-kicker">Technical stack</p>
+          <h1 className="section-heading">Skills</h1>
+          <p className="page-lede">
+            A practical full-stack toolkit shaped around product delivery, API reliability, and maintainable frontend work.
+          </p>
+        </aside>
 
-      <motion.p
-        className="text-base md:text-lg text-gray-400 mb-8"
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={fadeUp}
-        custom={1}
-      >
-        A snapshot of my core technical skills, frameworks, and tools I've worked with throughout my development journey.
-      </motion.p>
-
-      <div className="w-full space-y-6 md:space-y-10">
-        {Object.entries(skillGroups).map(([category, skills], index) => (
-          <motion.div
-            key={category}
-            ref={ref}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={fadeUp}
-            custom={index + 2}
-          >
-            <h2 className="text-lg sm:text-2xl md:text-3xl font-semibold mb-4 text-[var(--primary-bg)]">{category}</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm md:text-base">
-              {skills.map(({ name, icon: Icon }) => (
-                <div
-                  key={name}
-                  className="group relative flex items-center gap-2 md:px-4 md:py-3 p-2 py-3 rounded-md shadow-md dark:bg-muted transition-all duration-400 border-l-2 border-[var(--primary-bg)] hover:scale-110"
-                >
-                  {Icon ? <Icon className="w-5 h-5 text-[var(--primary-bg)]" /> : <RiCheckboxCircleLine className="w-5 h-5 text-[var(--primary-bg)]" />}
-                  <span className="font-medium">{name}</span>
+        <div>
+          <div className="dossier-title-row">
+            <h2 className="dossier-title">Technical Focus</h2>
+          </div>
+          <p className="section-copy mb-6">
+            I enjoy working across the full stack, with a focus on building robust backend systems and intuitive interfaces.
+          </p>
+          <div className="focus-table">
+            {focusGroups.map(({ label, icon, items }) => (
+              <div className="focus-row" key={label}>
+                <div className="focus-label">
+                  {icon}
+                  {label}
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+                <div className="chip-group">
+                  {items.map((item) => (
+                    <span className="chip" key={item}>{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
-
-    </>
   );
 }

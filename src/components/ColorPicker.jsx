@@ -1,54 +1,49 @@
 import { useState } from "react";
-import { X, Settings, Sparkles, EyeOff  } from "lucide-react";
+import { X, Palette } from "lucide-react";
 
 const themes = {
-  electricBlue: "#3b82f6",  // Tailwind blue-500
-  neonGreen: "#22c55e",     // Tailwind green-500
-  hotPink: "#ec4899",       // Tailwind pink-500
-  amberGold: "#f59e0b",     // Tailwind amber-500
-  skyCyan: "#0ea5e9",       // Tailwind sky-500
+  teal: "#0f766e",
+  indigo: "#334d8f",
+  forest: "#25634f",
+  graphite: "#334155",
+  amber: "#b7791f",
 };
 
 
-export default function ThemePicker({showParticles, setShowParticles}) {
+export default function ThemePicker() {
   const [showColors, setShowColors] = useState(false);
-  const toggleParticles = () => setShowParticles(!showParticles);
 
   const changeBrandColor = (bg) => {
     document.documentElement.style.setProperty('--primary-bg', bg);
-    document.documentElement.style.setProperty('--primary-text', bg=='#f59e0b' || bg=='#84cc16' ? '#000' : '#fff');
+    document.documentElement.style.setProperty('--primary-text', bg=='#b7791f' ? '#111827' : '#fff');
   };
 
   return (
-    <div className="fixed bottom-20 md:bottom-8 right-4 lg:right-12 z-50 flex items-center flex-col-reverse gap-2">
-      {/* Toggle Button */}
+    <div className="accent-picker">
       <button
+        type="button"
         onClick={() => setShowColors(!showColors)}
-        className="w-8 h-8 md:w-12 md:h-12 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-full flex items-center justify-center shadow-md transition-transform duration-300 hover:rotate-90"
+        className="accent-toggle"
+        aria-label="Change accent color"
       >
-        {showColors ? <X size={20} /> : <Settings size={20} />}
+        {showColors ? <X size={19} /> : <Palette size={19} />}
       </button>
 
-      {/* Color Options */}
       <div
-        className={`grid grid-cols-1 gap-2 transition-all duration-400 ease-in-out ${
+        className={`accent-options transition-all duration-200 ease-in-out ${
         showColors ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
         }`}
       >
         {Object.entries(themes).map(([key, value]) => (
           <button
             key={key}
+            type="button"
             onClick={() => changeBrandColor(value)}
-            className="w-5 h-5 rounded-full border-2 border-white shadow"
+            className="accent-swatch"
             style={{ backgroundColor: value }}
+            aria-label={`Use ${key} accent`}
           />
         ))}
-        <button
-              onClick={toggleParticles}
-              className="text-[var(--primary-bg)] py-1 rounded"
-            >
-              {showParticles ? <Sparkles className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
-            </button>
       </div>
     </div>
   );
