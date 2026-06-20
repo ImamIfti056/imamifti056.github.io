@@ -52,14 +52,14 @@ export default function Contact() {
         <div>
           <div className="focus-table mb-10">
             {[
-              { icon: <Mail />, value: "imamul.ifti@gmail.com" },
-              { icon: <Phone />, value: "+880 1610 617558" },
-              { icon: <MapPin />, value: "Dhaka, Bangladesh" },
-            ].map(({ icon, value }) => (
+              { icon: <Mail />, label: "Mail", value: "imamul.ifti@gmail.com" },
+              { icon: <Phone />, label: "Phone", value: "+880 1610 617558" },
+              { icon: <MapPin />, label: "Address", value: "Dhaka, Bangladesh" },
+            ].map(({ icon, label, value }) => (
               <div className="focus-row" key={value}>
                 <div className="focus-label">
                   {icon}
-                  Contact
+                  {label}
                 </div>
                 <div className="chip-group">
                   <span className="chip">{value}</span>

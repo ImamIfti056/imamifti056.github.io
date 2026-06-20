@@ -1,8 +1,9 @@
 import {
+  Calendar,
+  Droplet,
   MapPin,
-  User,
-  Headphones,
-  Languages
+  Languages,
+  Home,
 } from "lucide-react";
 
 const About = () => {
@@ -20,27 +21,30 @@ const About = () => {
 
         <div>
           <div className="section-copy max-w-3xl">
-          <p className="mb-4">
-            <span className="font-semibold text-[var(--ink)]">I'm Imamul Islam Ifti</span> — a Full-Stack Developer. I have completed my Bachelor in
-            Electronics and Communication Engineering from KUET. I’m passionate
-            about crafting <span className="font-semibold text-[var(--primary-bg)]">web applications</span> that not only function smoothly but
-            also provide real value to users.
+          <p className="mb-4 about-copy-desktop">
+            <span className="font-semibold text-[var(--ink)]">I'm Imamul Islam Ifti</span> — a Full-Stack Developer with a Bachelor in
+            Electronics and Communication Engineering from KUET. I build
+            <span className="font-semibold text-[var(--primary-bg)]"> web applications</span> with a focus on maintainable architecture,
+            thoughtful user experience, and practical engineering decisions.
           </p>
-          <p>
-            I believe in clean code, continuous learning, and leveraging
-            technology to solve real-world problems. Outside work, you’ll find
-            me exploring <span className="font-semibold text-[var(--primary-bg)]">AI trends</span>, building side projects, or planning my next
-            travel adventure.
+          <p className="about-copy-desktop">
+            My current workflow includes working with
+            <span className="font-semibold text-[var(--primary-bg)]"> AI coding agents</span> by defining clear rules, using specialized
+            skills, reviewing generated changes, and guiding them with strong
+            product and codebase context. I use AI as an engineering amplifier:
+            faster exploration, sharper debugging, and cleaner implementation
+            while keeping <span className="font-semibold text-[var(--primary-bg)]">ownership</span> of quality, readability, and user value.
           </p>
           </div>
 
           <div className="section-rule" />
           <div className="focus-table">
             {[
-              { label: "Personal", icon: <User />, items: ["August 11, 2001", "B (+ve)"] },
-              { label: "Location", icon: <MapPin />, items: ["Dhaka, Bangladesh", "Brahmanbaria, Bangladesh"] },
+              { label: "Birth Date", icon: <Calendar />, items: ["August 11, 2001"] },
+              { label: "Blood Group", icon: <Droplet />, items: ["B (+ve)"] },
+              { label: "Address", icon: <MapPin />, items: ["Dhaka, Bangladesh"] },
+              { label: "Hometown", icon: <Home />, items: ["Brahmanbaria, Bangladesh"] },
               { label: "Languages", icon: <Languages />, items: ["Bengali (Native)", "English (Fluent)"] },
-              { label: "Interests", icon: <Headphones />, items: ["AI trends", "Side projects", "Debugging"] },
             ].map(({ label, icon, items }) => (
               <div className="focus-row" key={label}>
                 <div className="focus-label">
