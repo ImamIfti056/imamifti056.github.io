@@ -31,7 +31,7 @@ export default function Experience() {
       <div className="split-page">
         <aside className="summary-panel">
           <p className="page-kicker">Work history</p>
-          <h1 className="section-heading">Experience</h1>
+          <h1 className="section-heading" style={{fontSize: "50px"}}>Experience</h1>
           <p className="page-lede">
             Product engineering work across frontend, backend, team delivery, and maintainable full-stack systems.
           </p>

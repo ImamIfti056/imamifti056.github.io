@@ -30,7 +30,7 @@ export default function Extracurricular() {
       <div className="split-page">
         <aside className="summary-panel">
           <p className="page-kicker">Beyond code</p>
-          <h1 className="section-heading" style={{fontSize: "42px"}}>Extracurricular</h1>
+          <h1 className="section-heading" style={{fontSize: "40px"}}>Extracurricular</h1>
           <p className="page-lede">
             Leadership, organizing, and discipline-oriented activities that shaped how I collaborate with teams.
           </p>
